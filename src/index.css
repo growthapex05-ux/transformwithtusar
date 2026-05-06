@@ -1,0 +1,79 @@
+/* ============================================
+   TransformWithTusar — Global Design System
+   ============================================ */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+:root {
+  --clr-sage:       #7a9e7e;
+  --clr-sage-light: #a8c5ac;
+  --clr-sage-dark:  #4d7352;
+  --clr-cream:      #faf7f2;
+  --clr-warm:       #f5ede0;
+  --clr-gold:       #c8923a;
+  --clr-gold-light: #e8b96a;
+  --clr-terracotta: #c97b5a;
+  --clr-dark:       #1e2a1e;
+  --clr-charcoal:   #2d3a2d;
+  --clr-text:       #3a3a3a;
+  --clr-muted:      #6b7280;
+  --clr-white:      #ffffff;
+  --clr-border:     #e8e0d5;
+
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans:  'Inter', sans-serif;
+  --font-body:  'DM Sans', sans-serif;
+
+  --radius-sm:  8px;
+  --radius-md:  16px;
+  --radius-lg:  32px;
+
+  --shadow-sm:  0 2px 12px rgba(30,42,30,0.06);
+  --shadow-md:  0 8px 32px rgba(30,42,30,0.12);
+  --shadow-lg:  0 20px 60px rgba(30,42,30,0.18);
+
+  --transition: 0.35s cubic-bezier(0.4,0,0.2,1);
+  --nav-h: 80px;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--clr-cream);
+  color: var(--clr-text);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+a  { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+button { cursor: pointer; border: none; background: none; font-family: inherit; }
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--clr-cream); }
+::-webkit-scrollbar-thumb { background: var(--clr-sage-light); border-radius: 99px; }
+
+h1, h2, h3, h4 { font-family: var(--font-serif); line-height: 1.2; color: var(--clr-dark); }
+h1 { font-size: clamp(2.4rem, 5vw, 4rem); }
+h2 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+h3 { font-size: clamp(1.2rem, 2.5vw, 1.6rem); }
+p  { color: var(--clr-muted); line-height: 1.8; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-12px); }
+}
+@keyframes shimmer {
+  from { background-position: -200% center; }
+  to   { background-position: 200% center; }
+}
+@keyframes scrollLine {
+  0%   { height: 0; opacity: 1; }
+  100% { height: 60px; opacity: 0; }
+}

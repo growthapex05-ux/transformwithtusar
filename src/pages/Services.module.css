@@ -1,0 +1,77 @@
+/* Services page styles */
+.pageHero { padding: 160px 0 80px; position: relative; overflow: hidden; text-align: center; }
+.heroBg { position: absolute; inset: 0; background: linear-gradient(135deg,#f5ede0 0%,#faf7f2 100%); }
+.heroBg::before { content:''; position:absolute; top:-120px; right:-120px; width:500px; height:500px; border-radius:50%; background:radial-gradient(circle,rgba(122,158,126,0.12) 0%,transparent 70%); }
+.container { max-width: 1180px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+.pageHero h1 { font-size:clamp(2rem,4.5vw,3.4rem); margin:16px 0; }
+.pageHero h1 em { color:#4d7352; font-style:italic; }
+.pageHero p { font-size:1.1rem; max-width:560px; margin:0 auto; }
+.badge { display:inline-block; padding:6px 18px; border-radius:99px; font-size:0.76rem; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; font-family:'Inter',sans-serif; background:rgba(122,158,126,0.15); color:#4d7352; }
+.badgeSage { background:rgba(122,158,126,0.15); color:#4d7352; }
+.badgeGold { background:rgba(200,146,58,0.12); color:#c8923a; }
+.sectionHeader { margin-bottom:56px; }
+.sectionHeader h2 { margin-bottom:14px; }
+.sectionHeader p { max-width:540px; font-size:1.05rem; }
+.centered { text-align:center; }
+.centered p { margin:0 auto; }
+.divider { width:60px; height:3px; background:linear-gradient(90deg,#7a9e7e,#c8923a); border-radius:2px; margin:14px 0; }
+.dividerCenter { margin:14px auto; }
+.fadeUp { opacity:0; transform:translateY(30px); transition:opacity 0.6s ease,transform 0.6s ease; }
+.visible { opacity:1 !important; transform:translateY(0) !important; }
+
+/* buttons */
+.btnPrimary { display:inline-flex; align-items:center; gap:8px; padding:14px 32px; border-radius:99px; font-family:'Inter',sans-serif; font-size:0.9rem; font-weight:600; background:linear-gradient(135deg,#4d7352,#7a9e7e); color:#fff; box-shadow:0 6px 24px rgba(77,115,82,0.35); transition:all 0.35s; border:none; cursor:pointer; }
+.btnPrimary:hover { transform:translateY(-2px); box-shadow:0 12px 36px rgba(77,115,82,0.45); }
+.btnWhite { display:inline-flex; align-items:center; justify-content:center; padding:14px 32px; border-radius:99px; font-family:'Inter',sans-serif; font-size:0.9rem; font-weight:600; background:#fff; color:#4d7352; box-shadow:0 6px 24px rgba(30,42,30,0.1); transition:all 0.35s; border:none; cursor:pointer; width:100%; }
+.btnWhite:hover { transform:translateY(-2px); }
+
+/* Programs */
+.programsSection { padding:100px 0; background:#faf7f2; }
+.programRow { display:grid; grid-template-columns:1fr 1fr; gap:72px; align-items:center; margin-bottom:80px; }
+.programRowReverse { direction:rtl; }
+.programRowReverse > * { direction:ltr; }
+.programImg { border-radius:24px; overflow:hidden; aspect-ratio:4/3; }
+.programImg img { width:100%; height:100%; object-fit:cover; transition:transform 0.5s; }
+.programImg:hover img { transform:scale(1.04); }
+.programIcon { font-size:2.4rem; margin-bottom:16px; display:block; }
+.programText h2 { margin-bottom:14px; font-size:clamp(1.5rem,2.5vw,2rem); }
+.programText h2 em { color:#4d7352; }
+.programDesc { margin-bottom:24px; font-size:1rem; }
+.benefitsList { list-style:none; display:flex; flex-direction:column; gap:10px; }
+.benefitsList li { display:flex; align-items:center; gap:12px; font-family:'Inter',sans-serif; font-size:0.9rem; color:#3a3a3a; }
+.bCheck { width:22px; height:22px; border-radius:50%; background:linear-gradient(135deg,#4d7352,#7a9e7e); color:#fff; display:flex; align-items:center; justify-content:center; font-size:0.7rem; font-weight:700; flex-shrink:0; }
+
+/* Pricing */
+.pricingSection { padding:100px 0; background:linear-gradient(135deg,#f5ede0,#faf7f2); }
+.plansGrid { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; }
+.planCard { background:#fff; border-radius:24px; padding:40px 32px; box-shadow:0 4px 20px rgba(30,42,30,0.08); position:relative; transition:all 0.35s; border:1px solid transparent; }
+.planCard:hover { transform:translateY(-8px); box-shadow:0 20px 60px rgba(30,42,30,0.14); }
+.planFeatured { background:linear-gradient(160deg,#1e2a1e,#2d3a2d); border:none; }
+.planTag { position:absolute; top:-14px; left:50%; transform:translateX(-50%); background:linear-gradient(135deg,#c8923a,#e8b96a); color:#fff; padding:6px 20px; border-radius:99px; font-size:0.72rem; font-weight:700; letter-spacing:1px; text-transform:uppercase; font-family:'Inter',sans-serif; white-space:nowrap; }
+.planName { font-family:'Playfair Display',serif; font-size:1.4rem; margin-bottom:12px; }
+.planFeatured .planName { color:#fff; }
+.planPrice { display:flex; align-items:baseline; gap:4px; margin-bottom:12px; }
+.priceNum { font-family:'Playfair Display',serif; font-size:2.4rem; font-weight:700; color:#1e2a1e; }
+.planFeatured .priceNum { color:#fff; }
+.pricePer { font-size:0.9rem; color:#6b7280; }
+.planFeatured .pricePer { color:rgba(255,255,255,0.5); }
+.planDesc { font-size:0.9rem; margin-bottom:24px; border-bottom:1px solid #e8e0d5; padding-bottom:24px; }
+.planFeatured .planDesc { color:rgba(255,255,255,0.6); border-color:rgba(255,255,255,0.1); }
+.planFeatures { list-style:none; display:flex; flex-direction:column; gap:12px; margin-bottom:32px; }
+.planFeatures li { display:flex; align-items:center; gap:10px; font-family:'Inter',sans-serif; font-size:0.88rem; color:#3a3a3a; }
+.planFeatured .planFeatures li { color:rgba(255,255,255,0.75); }
+.planFeatures li span { color:#4d7352; font-weight:700; flex-shrink:0; }
+.planFeatured .planFeatures li span { color:#a8c5ac; }
+.pricingNote { text-align:center; margin-top:36px; font-size:0.9rem; color:#6b7280; }
+.pricingNote a { color:#4d7352; font-weight:600; text-decoration:underline; }
+
+/* FAQ */
+.faqSection { padding:100px 0; background:#faf7f2; }
+.faqGrid { display:grid; grid-template-columns:repeat(2,1fr); gap:28px; }
+.faqItem { background:#fff; border-radius:16px; padding:28px 32px; box-shadow:0 2px 12px rgba(30,42,30,0.06); border-left:3px solid #7a9e7e; transition:all 0.35s; }
+.faqItem:hover { transform:translateY(-4px); box-shadow:0 12px 40px rgba(30,42,30,0.1); }
+.faqItem h4 { font-family:'Inter',sans-serif; font-size:0.95rem; font-weight:600; color:#1e2a1e; margin-bottom:12px; }
+.faqItem p { font-size:0.9rem; }
+
+@media(max-width:1024px) { .plansGrid{grid-template-columns:1fr} .programRow{gap:48px} }
+@media(max-width:768px) { .programRow,.programRowReverse{grid-template-columns:1fr; direction:ltr} .plansGrid{grid-template-columns:1fr} .faqGrid{grid-template-columns:1fr} }
