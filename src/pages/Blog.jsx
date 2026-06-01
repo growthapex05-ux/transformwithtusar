@@ -196,24 +196,53 @@ export default function Blog() {
         <div className={styles.heroBg} />
         <div className={styles.container}>
           <span className={styles.badge}>Wellness Wisdom</span>
-          <h1>The <em>Blog</em></h1>
+          <h1>The <em>Journal</em></h1>
           <p>Practical tips, evidence-based insights, and soulful stories to inspire your wellness journey.</p>
-          <div className={styles.searchBox}>
-            <span className={styles.searchIcon}>🔍</span>
-            <input type="text" placeholder="Search articles..." value={search} onChange={e => setSearch(e.target.value)} />
+          
+          <div className={styles.searchContainer}>
+            <div className={styles.searchBox}>
+              <span className={styles.searchIcon}>🔍</span>
+              <input type="text" placeholder="Search by topic, keyword, or article..." value={search} onChange={e => setSearch(e.target.value)} />
+            </div>
+            <div className={styles.filterRow}>
+              {cats.map(c => (
+                <button key={c} className={`${styles.filterBtn} ${active === c ? styles.filterActive : ''}`} onClick={() => setActive(c)}>{c}</button>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Filter + Grid */}
+      {/* Featured Post */}
+      {active === 'All' && search === '' && filtered.length > 0 && (
+        <section className={styles.featuredSection}>
+          <div className={styles.container}>
+            <article className={`${styles.featuredCard} ${styles.fadeUp}`} ref={ref}>
+              <Link to={`/blog/${filtered[0].id}`} className={styles.featuredImg}>
+                <img src={filtered[0].img} alt={filtered[0].title} />
+                <div className={styles.featuredOverlay} />
+                <span className={styles.featuredBadge}>Latest Release</span>
+              </Link>
+              <div className={styles.featuredBody}>
+                <div className={styles.featuredMeta}>
+                  <span className={styles.featuredCat}>{filtered[0].cat}</span>
+                  <span className={styles.featuredDate}>{filtered[0].date} · {filtered[0].read}</span>
+                </div>
+                <h2><Link to={`/blog/${filtered[0].id}`}>{filtered[0].title}</Link></h2>
+                <p>{filtered[0].excerpt}</p>
+                <div className={styles.featuredTags}>
+                  {filtered[0].tags.map(t => <span key={t} className={styles.tag}>{t}</span>)}
+                </div>
+                <Link to={`/blog/${filtered[0].id}`} className={styles.readMoreBtn}>Read Full Article ✦</Link>
+              </div>
+            </article>
+          </div>
+        </section>
+      )}
+
+      {/* Blog Grid */}
       <section className={styles.blogSection}>
         <div className={styles.container}>
-          <div className={styles.filterRow}>
-            {cats.map(c => (
-              <button key={c} className={`${styles.filterBtn} ${active === c ? styles.filterActive : ''}`} onClick={() => setActive(c)}>{c}</button>
-            ))}
-          </div>
-
           {filtered.length === 0 ? (
             <div className={styles.noResults}>
               <span>🌿</span>
@@ -222,7 +251,7 @@ export default function Blog() {
             </div>
           ) : (
             <div className={styles.blogGrid}>
-              {filtered.map((post, i) => (
+              {filtered.slice(active === 'All' && search === '' ? 1 : 0).map((post, i) => (
                 <article key={post.id} className={`${styles.blogCard} ${styles.fadeUp}`} ref={ref} style={{ transitionDelay: `${i * 0.08}s` }}>
                   <Link to={`/blog/${post.id}`} className={styles.imgWrap}>
                     <img src={post.img} alt={post.title} />
@@ -232,9 +261,6 @@ export default function Blog() {
                     <div className={styles.meta}>{post.date} · {post.read}</div>
                     <h3><Link to={`/blog/${post.id}`}>{post.title}</Link></h3>
                     <p>{post.excerpt}</p>
-                    <div className={styles.tags}>
-                      {post.tags.map(t => <span key={t} className={styles.tag}>{t}</span>)}
-                    </div>
                     <Link to={`/blog/${post.id}`} className={styles.readMore}>Read Article →</Link>
                   </div>
                 </article>
