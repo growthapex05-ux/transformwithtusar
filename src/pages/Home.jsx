@@ -62,9 +62,9 @@ export default function Home() {
             <Link to="/about" className={styles.btnWhite}>Meet Tusar</Link>
           </div>
           <div className={styles.heroStats}>
-            <div className={styles.stat}><span className={styles.statNum}>500+</span><span className={styles.statLabel}>Lives Transformed</span></div>
+            <div className={styles.stat}><span className={styles.statNum}>20000+</span><span className={styles.statLabel}>Lives Transformed</span></div>
             <div className={styles.statDiv} />
-            <div className={styles.stat}><span className={styles.statNum}>8+</span><span className={styles.statLabel}>Years Experience</span></div>
+            <div className={styles.stat}><span className={styles.statNum}>10+</span><span className={styles.statLabel}>Years Experience</span></div>
             <div className={styles.statDiv} />
             <div className={styles.stat}><span className={styles.statNum}>98%</span><span className={styles.statLabel}>Client Satisfaction</span></div>
           </div>
