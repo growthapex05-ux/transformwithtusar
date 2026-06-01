@@ -69,23 +69,10 @@ export default function Home() {
             <div className={styles.stat}><span className={styles.statNum}>98%</span><span className={styles.statLabel}>Client Satisfaction</span></div>
           </div>
         </div>
-        <div className={styles.scrollHint}>
-          <span>Scroll to explore</span>
-          <div className={styles.scrollLine} />
-        </div>
+
       </section>
 
-      {/* ── Trust Bar ─────────────────── */}
-      <section className={styles.trustBar}>
-        <div className={styles.trustInner}>
-          <p className={styles.trustLabel}>Certified & recognised by</p>
-          <div className={styles.trustLogos}>
-            {['🏅 ACE Certified','🌿 Ayurveda Council','🧘 Yoga Alliance RYT-500','🍃 IIN Health Coach','💪 NASM-CPT'].map(t => (
-              <span key={t}>{t}</span>
-            ))}
-          </div>
-        </div>
-      </section>
+
 
       {/* ── Services ──────────────────── */}
       <section className={styles.sectionPad} id="services">
