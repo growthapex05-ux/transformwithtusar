@@ -23,20 +23,10 @@
   width: 100%;
 }
 .logo { display: flex; flex-direction: column; line-height: 1; }
-.logoMain {
-  font-family: 'Playfair Display', Georgia, serif;
-  font-size: 1.35rem;
-  font-weight: 700;
-  color: #1e2a1e;
-}
-.logoSub {
-  font-size: 0.62rem;
-  letter-spacing: 2.5px;
-  text-transform: uppercase;
-  color: #4d7352;
-  font-family: 'Inter', sans-serif;
-  font-weight: 600;
-  margin-top: 2px;
+.logoImage {
+  max-height: 48px;
+  width: auto;
+  object-fit: contain;
 }
 .navLinks {
   display: flex;
@@ -52,6 +42,14 @@
   position: relative;
   transition: color 0.35s;
 }
+.lightText .navLinks a {
+  color: #ffffff;
+}
+.lightText .navLinks a::after {
+  background: #a8c5ac;
+}
+.lightText .navLinks a:hover,
+.lightText .navLinks a.active { color: #a8c5ac; }
 .navLinks a::after {
   content: '';
   position: absolute;
@@ -101,6 +99,9 @@
   background: #1e2a1e;
   border-radius: 2px;
   transition: all 0.35s;
+}
+.lightText .hamburger span {
+  background: #ffffff;
 }
 
 /* Mobile Nav */

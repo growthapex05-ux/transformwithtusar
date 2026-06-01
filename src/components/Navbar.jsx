@@ -20,11 +20,10 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className={`${styles.navbar} ${scrolled ? styles.scrolled : ''}`}>
+      <nav className={`${styles.navbar} ${scrolled ? styles.scrolled : ''} ${!scrolled && location.pathname === '/' ? styles.lightText : ''}`}>
         <div className={styles.container}>
           <Link to="/" className={styles.logo}>
-            <span className={styles.logoMain}>TransformWithTusar</span>
-            <span className={styles.logoSub}>Holistic Wellness Coaching</span>
+            <img src={(scrolled || location.pathname !== '/') ? "/dark_logo.png" : "/logo.png"} alt="TransformWithTusar Logo" className={styles.logoImage} />
           </Link>
 
           <ul className={styles.navLinks}>
@@ -32,10 +31,10 @@ export default function Navbar() {
             <li><NavLink to="/about" className={({ isActive }) => isActive ? styles.active : ''}>About</NavLink></li>
             <li><NavLink to="/services" className={({ isActive }) => isActive ? styles.active : ''}>Services</NavLink></li>
             <li><NavLink to="/blog" className={({ isActive }) => isActive ? styles.active : ''}>Blog</NavLink></li>
-            <li><a href="/#testimonials">Testimonials</a></li>
+            <li><NavLink to="/testimonials" className={({ isActive }) => isActive ? styles.active : ''}>Testimonials</NavLink></li>
           </ul>
 
-          <Link to="/services" className={styles.cta}>Book a Session</Link>
+          <Link to="/book" className={styles.cta}>Book a Session</Link>
 
           <button className={styles.hamburger} onClick={() => setMobileOpen(true)} aria-label="Open menu">
             <span /><span /><span />
@@ -50,8 +49,8 @@ export default function Navbar() {
         <Link to="/about" onClick={() => setMobileOpen(false)}>About</Link>
         <Link to="/services" onClick={() => setMobileOpen(false)}>Services</Link>
         <Link to="/blog" onClick={() => setMobileOpen(false)}>Blog</Link>
-        <a href="/#testimonials" onClick={() => setMobileOpen(false)}>Testimonials</a>
-        <Link to="/services" className={styles.mobileCta} onClick={() => setMobileOpen(false)}>Book a Session ✦</Link>
+        <Link to="/testimonials" onClick={() => setMobileOpen(false)}>Testimonials</Link>
+        <Link to="/book" className={styles.mobileCta} onClick={() => setMobileOpen(false)}>Book a Session ✦</Link>
       </div>
     </>
   );

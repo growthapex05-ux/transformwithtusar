@@ -1,52 +1,45 @@
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import { FaBalanceScale, FaSeedling, FaHeartbeat, FaBolt, FaStar, FaHandsHelping } from 'react-icons/fa';
 import styles from './Services.module.css';
 
-const plans = [
-  {
-    name: 'Spark', price: '₹4,999', period: '/month', tag: null,
-    desc: 'Perfect to get started with your wellness journey.',
-    features: ['2 x 1-on-1 coaching sessions', 'Personalised meal plan', 'Grocery list', 'Email support', 'Access to resource library'],
-    cta: 'Get Started',
-  },
-  {
-    name: 'Transform', price: '₹8,999', period: '/month', tag: 'Most Popular',
-    desc: 'The full experience — everything you need to truly transform.',
-    features: ['4 x 1-on-1 coaching sessions', 'Custom nutrition plan', 'Custom workout routine', '24/7 WhatsApp support', 'Weekly check-ins', 'Grocery & snack guide', 'Progress tracking dashboard'],
-    cta: 'Start Transforming',
-  },
-  {
-    name: 'Elite', price: '₹14,999', period: '/month', tag: null,
-    desc: 'For those who want an all-encompassing premium experience.',
-    features: ['8 x 1-on-1 sessions (bi-weekly)', 'Full wellness assessment', 'Advanced nutrition coaching', 'Custom yoga & meditation plan', '24/7 priority support', 'Monthly body composition review', 'Unlimited plan adjustments', 'Supplement guidance'],
-    cta: 'Go Elite',
-  },
-];
 
-const programs = [
+export const programs = [
   {
-    id: 'nutrition', icon: '🥗', title: 'Nutrition Coaching',
-    desc: 'Science-backed, culturally sensitive nutrition coaching that goes beyond "eat less, move more." We build a sustainable relationship with food that nourishes and delights you.',
-    benefits: ['Personalised macro & calorie targets', 'Culturally adapted meal plans', 'Mindful eating strategies', 'Supplement guidance', 'Grocery lists & snack ideas', 'Dining out strategies'],
-    img: '/images/blog_nutrition.png',
-  },
-  {
-    id: 'coaching', icon: '🌟', title: '1-on-1 Wellness Coaching',
-    desc: 'The full TransformWithTusar experience. Deep, personalised coaching that addresses every dimension of your health — physical, mental, emotional and spiritual.',
-    benefits: ['Comprehensive wellness assessment', 'Goal setting & roadmapping', 'Weekly accountability sessions', 'Mindset & habit coaching', 'Lifestyle optimisation', 'Sleep & stress management'],
+    id: 'weight', icon: <FaBalanceScale />, title: 'Weight Loss & Gain', subtitle: 'Transform Your Body',
+    desc: 'Lose fat or gain healthy weight in 90 days or less — with a personalized plan built for your body, not a generic diet.',
+    benefits: ['Personalised meal plan', 'Goal-oriented strategy', 'Sustainable habits'],
     img: '/images/hero_wellness.png',
   },
   {
-    id: 'mindfulness', icon: '🧘', title: 'Mindfulness & Movement',
-    desc: 'Yoga, breathwork, and meditation designed specifically for your lifestyle and needs. Build a sustainable mind-body practice that reduces stress and cultivates inner peace.',
-    benefits: ['Custom yoga sequences', 'Daily breathwork practices', 'Guided meditation sessions', 'Stress reduction techniques', 'Sleep optimisation rituals', 'Mind-body journaling prompts'],
+    id: 'pcos', icon: <FaSeedling />, title: 'PCOS & Hormonal Balance', subtitle: 'PCOS, Simplified',
+    desc: 'Support your cycles, hormones, and energy naturally — with food-first nutrition designed for Indian women.',
+    benefits: ['Hormone support', 'Food-first approach', 'Energy regulation'],
+    img: '/images/blog_nutrition.png',
+  },
+  {
+    id: 'diabetes', icon: <FaHeartbeat />, title: 'Diabetes-Friendly Nutrition', subtitle: 'Sugar-Smart Living',
+    desc: 'Build simple everyday eating habits that support a healthy, active lifestyle — designed around real Indian routines.',
+    benefits: ['Blood sugar management', 'Indian diet focused', 'Active lifestyle support'],
     img: '/images/blog_mindfulness.png',
   },
   {
-    id: 'fitness', icon: '💪', title: 'Fitness & Body Transformation',
-    desc: 'No cookie-cutter plans here. Your workout programme is built specifically for your body, goals, and schedule — whether you\'re at the gym or at home.',
-    benefits: ['Full body composition assessment', 'Custom training programme', 'Home & gym workout options', 'Technique guidance & videos', 'Progressive overload planning', 'Recovery & mobility protocols'],
+    id: 'fitness', icon: <FaBolt />, title: 'Fitness & Energy', subtitle: 'Energy For Life',
+    desc: 'Feel strong and energetic all day with nutrition that powers your workouts and your everyday hustle.',
+    benefits: ['Workout nutrition', 'All-day energy', 'Strength building'],
     img: '/images/blog_fitness.png',
+  },
+  {
+    id: 'skin', icon: <FaStar />, title: 'Skin, Beauty & Immunity', subtitle: 'Glow From Within',
+    desc: 'Healthier skin, hair, and stronger immunity — powered by nutrition that works from the inside out.',
+    benefits: ['Skin & hair health', 'Immunity boost', 'Internal nourishment'],
+    img: '/images/hero_wellness.png',
+  },
+  {
+    id: 'coaching', icon: <FaHandsHelping />, title: 'Personalized Coaching & Support', subtitle: 'Your Coach, Always',
+    desc: 'A custom plan made just for you, plus regular check-ins and follow-up until you hit your goal.',
+    benefits: ['Custom plan', 'Regular check-ins', 'Goal tracking'],
+    img: '/images/blog_nutrition.png',
   },
 ];
 
@@ -87,46 +80,21 @@ export default function Services() {
               <div className={styles.programText}>
                 <span className={styles.programIcon}>{p.icon}</span>
                 <h2>{p.title}</h2>
+                <h3 style={{ fontSize: '1.2rem', color: 'var(--sage)', marginBottom: '1rem', marginTop: '-0.5rem', fontWeight: '500' }}>{p.subtitle}</h3>
                 <p className={styles.programDesc}>{p.desc}</p>
                 <ul className={styles.benefitsList}>
                   {p.benefits.map(b => <li key={b}><span className={styles.bCheck}>✓</span>{b}</li>)}
                 </ul>
-                <Link to="/services#booking" className={styles.btnPrimary} style={{ marginTop: '28px', display: 'inline-flex' }}>Book This Programme</Link>
+                <Link to="/services#booking" className={styles.btnPrimary} style={{ marginTop: '28px', display: 'inline-flex' }}>Know More</Link>
               </div>
             </div>
           ))}
+          <div className={styles.disclaimer} style={{ marginTop: '4rem', padding: '1.5rem', background: 'var(--bg-card)', borderRadius: '12px', textAlign: 'center', fontSize: '0.9rem', color: 'var(--text-muted)', border: '1px solid var(--border-light)' }}>
+            <p><strong>Disclaimer:</strong> Nutrition and wellness guidance only. Not a substitute for professional medical advice — please consult your doctor for any medical condition.</p>
+          </div>
         </div>
       </section>
 
-      {/* Pricing */}
-      <section className={styles.pricingSection} id="booking">
-        <div className={styles.container}>
-          <div className={`${styles.sectionHeader} ${styles.centered}`} ref={ref}>
-            <span className={`${styles.badge} ${styles.badgeGold}`}>Pricing Plans</span>
-            <div className={`${styles.divider} ${styles.dividerCenter}`} />
-            <h2>Simple, Transparent <em>Pricing</em></h2>
-            <p>No hidden fees. Choose the plan that fits your goals and budget. All plans include a free 30-min discovery call.</p>
-          </div>
-          <div className={styles.plansGrid}>
-            {plans.map((plan, i) => (
-              <div key={plan.name} className={`${styles.planCard} ${plan.tag ? styles.planFeatured : ''} ${styles.fadeUp}`} ref={ref} style={{ transitionDelay: `${i * 0.12}s` }}>
-                {plan.tag && <div className={styles.planTag}>{plan.tag}</div>}
-                <h3 className={styles.planName}>{plan.name}</h3>
-                <div className={styles.planPrice}>
-                  <span className={styles.priceNum}>{plan.price}</span>
-                  <span className={styles.pricePer}>{plan.period}</span>
-                </div>
-                <p className={styles.planDesc}>{plan.desc}</p>
-                <ul className={styles.planFeatures}>
-                  {plan.features.map(f => <li key={f}><span>✓</span>{f}</li>)}
-                </ul>
-                <button className={plan.tag ? styles.btnWhite : styles.btnPrimary}>{plan.cta}</button>
-              </div>
-            ))}
-          </div>
-          <p className={styles.pricingNote}>💬 Not sure which plan is right for you? <Link to="/services#booking">Book a free discovery call</Link> and we'll figure it out together.</p>
-        </div>
-      </section>
 
       {/* FAQ */}
       <section className={styles.faqSection}>

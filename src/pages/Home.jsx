@@ -1,13 +1,8 @@
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import { FaWhatsapp } from 'react-icons/fa';
+import { programs } from './Services';
 import styles from './Home.module.css';
-
-const services = [
-  { icon: '🥗', title: 'Nutrition Coaching', desc: 'Personalised meal planning and mindful eating practices aligned with your goals, lifestyle and cultural preferences.', perks: ['Custom meal plans', 'Grocery & snack guidance', 'Mindful eating practices'], id: 'nutrition' },
-  { icon: '🌟', title: '1-on-1 Wellness Coaching', desc: 'Deep-dive personalised coaching covering all dimensions of health — physical, mental, emotional and spiritual.', perks: ['Weekly 1-on-1 sessions', '24/7 WhatsApp support', 'Full wellness assessment'], id: 'coaching', featured: true },
-  { icon: '🧘', title: 'Mindfulness & Movement', desc: 'Yoga, breathwork and meditation techniques that reduce stress and build lasting mental resilience.', perks: ['Custom yoga routines', 'Breathwork & meditation', 'Stress management tools'], id: 'mindfulness' },
-  { icon: '💪', title: 'Fitness & Body Transformation', desc: 'Science-backed workout plans tailored to your body type, fitness level and goals — no fads, just results.', perks: ['Custom workout plans', 'Progress tracking', 'Body composition coaching'], id: 'fitness' },
-];
 
 const privileges = [
   '1-on-1 Coaching Sessions', '24/7 Motivational Chat', 'Custom Workout Routine',
@@ -101,17 +96,19 @@ export default function Home() {
             <h2>Holistic Programs<br />Designed <em>for You</em></h2>
             <p>Every programme is crafted to meet you exactly where you are — with science-backed strategies and compassionate guidance.</p>
           </div>
-          <div className={styles.servicesGrid}>
-            {services.map((s, i) => (
-              <div key={s.id} className={`${styles.serviceCard} ${s.featured ? styles.featuredCard : ''} ${styles.fadeUp}`} ref={addRef} style={{ transitionDelay: `${i * 0.1}s` }}>
-                {s.featured && <div className={styles.popularBadge}>Most Popular</div>}
-                <div className={styles.serviceIcon}>{s.icon}</div>
-                <h3>{s.title}</h3>
-                <p>{s.desc}</p>
-                <ul className={styles.perks}>
-                  {s.perks.map(p => <li key={p}>✓ {p}</li>)}
-                </ul>
-                <Link to={`/services#${s.id}`} className={styles.serviceLink}>Learn more →</Link>
+          <div className={styles.programsGrid}>
+            {programs.map((p, i) => (
+              <div key={p.id} className={`${styles.programCard} ${styles.fadeUp}`} ref={addRef} style={{ transitionDelay: `${i * 0.1}s` }}>
+                <div className={styles.programCardImg}>
+                  <img src={p.img} alt={p.title} />
+                </div>
+                <div className={styles.programCardBody}>
+                  <div className={styles.programCardIcon}>{p.icon}</div>
+                  <span className={styles.programCardSubtitle}>{p.subtitle}</span>
+                  <h3>{p.title}</h3>
+                  <p>{p.desc}</p>
+                  <Link to={`/services#${p.id}`} className={styles.programCardLink}>Learn more →</Link>
+                </div>
               </div>
             ))}
           </div>
@@ -148,25 +145,26 @@ export default function Home() {
         <div className={styles.container}>
           <div className={styles.aboutInner}>
             <div className={styles.aboutImgWrap} ref={addRef}>
-              <img src="/images/coach_portrait.png" alt="Tusar — Wellness Coach" className={styles.aboutImg} />
-              <div className={styles.aboutBadge}>
-                <span className={styles.aibNum}>8+</span>
-                <span className={styles.aibLabel}>Years of<br />Coaching</span>
-              </div>
+              <div className={styles.dot} />
               <div className={`${styles.dot} ${styles.dot1}`} />
               <div className={`${styles.dot} ${styles.dot2}`} />
+              <img src="/images/hero.png" alt="Tushar Ranjan Sahoo" className={styles.aboutImg} />
             </div>
             <div className={styles.aboutText} ref={addRef}>
-              <span className={`${styles.badge} ${styles.badgeSage}`}>About Tusar</span>
+              <span className={`${styles.badge} ${styles.badgeSage}`}>My Story</span>
               <div className={styles.divider} />
-              <h2>Your Guide to a<br /><em>Balanced, Vibrant Life</em></h2>
-              <p>Hi! I'm Tusar — a certified holistic wellness coach, yoga practitioner and nutrition specialist with a passion for helping people reconnect with their healthiest selves.</p>
-              <p style={{ marginTop: '16px' }}>My approach blends modern science with ancient wisdom — creating programmes that are not just effective, but deeply nourishing for your body, mind and soul.</p>
-              <div className={styles.aboutHighlights}>
-                <div className={styles.hlItem}><span className={styles.hlIcon}>🎓</span><div><strong>Certified Expert</strong><p>ACE, NASM, IIN & Yoga Alliance certified</p></div></div>
-                <div className={styles.hlItem}><span className={styles.hlIcon}>🌍</span><div><strong>Global Community</strong><p>Clients across 12 countries</p></div></div>
+              <h2>I'm Tushar Ranjan Sahoo<br /><em>Senior Wellness Coach ❤️</em></h2>
+              <p>I share my journey for one reason — to inspire you that an ordinary person can build an extraordinary life. I believe in good energy, hard work, and lifting up the people around me. I hope my story gives you the one thing I once needed most: belief. Let's connect.</p>
+              
+              <h3 style={{ marginTop: '24px', marginBottom: '12px', fontSize: '1.2rem', color: '#1e2a1e' }}>Who I Am</h3>
+              <p>I come from an ordinary middle-class family. For years, I served in the Indian Army — proud work, but a life of around ₹30,000 a month, with very little time and almost no freedom. Like most families, we kept going, but something was always missing.</p>
+              
+              <div style={{ marginTop: '32px', display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
+                <Link to="/about" className={styles.btnOutline} style={{ display: 'inline-flex', alignItems: 'center' }}>See More →</Link>
+                <a href="https://wa.me/918280461526" target="_blank" rel="noopener noreferrer" className={styles.btnPrimary} style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
+                  <FaWhatsapp size={20} /> WhatsApp Me
+                </a>
               </div>
-              <Link to="/about" className={styles.btnOutline} style={{ marginTop: '32px', display: 'inline-flex' }}>Read My Story →</Link>
             </div>
           </div>
         </div>
@@ -235,7 +233,7 @@ export default function Home() {
             <span className={`${styles.badge} ${styles.badgeGold}`}>Ready to Begin?</span>
             <h2>Start Your Transformation<br /><em>Today</em></h2>
             <p>Book a free 30-minute discovery call and let's map out your personalised wellness roadmap.</p>
-            <Link to="/services" className={styles.btnGold} style={{ marginTop: '16px', display: 'inline-flex' }}>Book Free Discovery Call ✦</Link>
+            <Link to="/book" className={styles.btnGold} style={{ marginTop: '16px', display: 'inline-flex' }}>Book Free Discovery Call ✦</Link>
           </div>
         </div>
       </section>

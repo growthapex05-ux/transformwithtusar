@@ -1,3 +1,4 @@
+import { FaEnvelope, FaWhatsapp } from 'react-icons/fa';
 import styles from './Privacy.module.css';
 
 const sections = [
@@ -95,8 +96,8 @@ export default function Privacy() {
                 <h3>Questions About Our Policies?</h3>
                 <p>If you have any questions about these policies or how we handle your information, please don't hesitate to reach out.</p>
                 <div className={styles.contactMethods}>
-                  <div className={styles.contactMethod}><span>📧</span><div><strong>Email</strong><p>privacy@transformwithtusar.com</p></div></div>
-                  <div className={styles.contactMethod}><span>💬</span><div><strong>WhatsApp</strong><p>+91 98765 43210</p></div></div>
+                  <div className={styles.contactMethod}><span><FaEnvelope /></span><div><strong>Email</strong><p>privacy@transformwithtusar.com</p></div></div>
+                  <div className={styles.contactMethod}><span><FaWhatsapp /></span><div><strong>WhatsApp</strong><p>+91 98765 43210</p></div></div>
                 </div>
               </div>
             </div>

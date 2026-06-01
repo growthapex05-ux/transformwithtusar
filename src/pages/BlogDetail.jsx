@@ -89,7 +89,7 @@ export default function BlogDetail() {
               {/* Nav */}
               <div className={styles.postNav}>
                 <Link to="/blog" className={styles.navBtn}>← Back to Blog</Link>
-                <Link to="/services" className={styles.navBtnPrimary}>Work with Tusar ✦</Link>
+                <Link to="/book" className={styles.navBtnPrimary}>Work with Tusar ✦</Link>
               </div>
             </article>
 
@@ -100,7 +100,7 @@ export default function BlogDetail() {
                 <div className={styles.sidebarCtaIcon}>🌿</div>
                 <h4>Ready to Transform?</h4>
                 <p>Book a free 30-min discovery call and let's create your personalised wellness roadmap.</p>
-                <Link to="/services" className={styles.sidebarCtaBtn}>Book Free Call ✦</Link>
+                <Link to="/book" className={styles.sidebarCtaBtn}>Book Free Call ✦</Link>
               </div>
 
               {/* Related Posts */}
